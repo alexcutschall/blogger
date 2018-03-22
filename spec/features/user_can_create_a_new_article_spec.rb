@@ -6,7 +6,7 @@ describe 'user sees the create a new article form' do
       article_1 = Article.create!(title: "Why Hip Hop Matters", body: "Because it's awesome")
 
       visit articles_path
-      click_link("Create a New Article")
+      click_link "Create a New Article"
 
       expect(current_path).to eq(new_article_path)
 
