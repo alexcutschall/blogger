@@ -10,6 +10,7 @@ describe 'user sees one article' do
 
       expect(page).to have_content(article_1.title)
       expect(page).to have_content(article_1.body)
+      expect(page).to have_link("<< Back to Articles List")
     end
   end
 end
