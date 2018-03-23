@@ -16,6 +16,7 @@ describe 'user sees the create a new article form' do
 
       expect(page).to have_content("The Incredibles")
       expect(page).to have_content("One of the best animated films")
+      expect(page).to have_content("Article The Incredibles was created!")
     end
   end
 end

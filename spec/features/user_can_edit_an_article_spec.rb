@@ -13,6 +13,7 @@ describe "user can edit an article" do
 
       expect(current_path).to eq(article_path(article_1))
       expect(page).to have_content("Why Rock n Roll Matters")
+      expect(page).to have_content("Article Why Rock n Roll Matters was updated!")
     end
   end
 end
