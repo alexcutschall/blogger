@@ -18,5 +18,21 @@ describe 'user sees one article' do
       expect(page).to have_content(comment_2.author_name)
       expect(page).to have_content(comment_2.body)
     end
+    describe 'user fills in the comment section' do
+      it 'displays the comment on the article show' do
+        article_1 = Article.create!(title: "Why Hip Hop Matters", body: "Because it's awesome")
+
+        visit article_path(article_1)
+
+        fill_in "comment[author_name]", with: "Kendrick Lamar"
+        fill_in "comment[body]", with: "Cause it's great"
+        click_on "Submit"
+
+        expect(current_path).to eq(article_path(article_1))
+        expect(page).to have_content("Post a comment")
+        expect(page).to have_content("Kendrick Lamar")
+        expect(page).to have_content("Cause it's great")
+      end
+    end
   end
 end
