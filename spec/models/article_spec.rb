@@ -8,4 +8,15 @@ describe Article, type: :model do
   describe 'relationships' do
     it {should have_many(:comments)}
   end
+  describe 'class methods' do
+    describe '#tag_list' do
+      it "turns associated tags into a string" do
+        article = Article.create(title: "Cars 3", body: "Who made this?")
+        article.tags.create(name: "Animated")
+        article.tags.create(name: "Family")
+
+        expect(article.tag_list).to eq("Animated, Family")
+      end
+    end
+  end
 end
