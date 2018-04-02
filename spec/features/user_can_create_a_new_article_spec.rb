@@ -12,6 +12,7 @@ describe 'user sees the create a new article form' do
 
       fill_in "article[title]", with: "The Incredibles"
       fill_in "article[body]", with: "One of the best animated films"
+      fill_in "article[tag_list]", with: "Ruby, Technology"
       click_on "Create Article"
 
       expect(page).to have_content("The Incredibles")
